@@ -57,6 +57,30 @@
     <p>Can't realy give short definition. Condition of Class to hide internal implementation of methods and properties.</p>
     <p><a href="https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)" target="_blank">Wikipedia</a></p>
   </div>
+  <div>
+    <b id="Association">Association</b><br/>
+    <p>Тип слабой зависимости две сущьности сушествуют отдельно друг от друга. Объект имеет доступ к другому
+    через указатель. Ассоциация – это когда один класс включает в себя указатель на другой класс в качестве одного из 
+полей.</p>
+  </div>
+  <div>
+    <b id="Aggregation">Aggregation</b><br/>
+    <p>
+АГРЕГАЦИЯ подразумевают методику создания нового класса из уже существующих классов 
+путём их включения в свой состав. Составная часть передается через параметры конструктора.</p>
+<p>However, if the enclosing class is deleted, the aggregated object wouldn't be destroyed.
+Note that objects participating in an aggregation relationship cannot have cyclic
+aggregation relationships, i.e., a whole can contain a part, but the reverse is not true. </p>
+  </div>
+  <div>
+    <b id="Composition">Composition</b><br/>
+    <p>
+Композиция (агрегирование по значению) — тип строгой зависимости и более строгий вариант агрегирования, когда 
+включаемый объект может существовать только как часть контейнера. 
+Если контейнер будет уничтожен, то и включённый объект тоже будет уничтожен.
+Композиция подразумевает создание объектов с использованием других объектов (has-a relationship).
+    </p>
+  </div>
 
   <div>
     <b id=""></b><br/>
@@ -64,6 +88,8 @@
   </div>
   <h4>External Links:</h4>
   <ul>
+    <li><a href="https://www.infoworld.com/article/3029325/application-development/exploring-association-aggregation-and-composition-in-oop.html" target="_blank">
+      Association, Aggregation, Composition.</a></li>
     <li><a href="https://en.wikipedia.org/wiki/Object_(computer_science)" target="_blank">Wikipedia</a></li>
     <li><a href="https://en.wikipedia.org/wiki/Object-oriented_programming" target="_blank">Object-oriented programming</a></li>
     <li><a href="" target="_blank"></a></li>
