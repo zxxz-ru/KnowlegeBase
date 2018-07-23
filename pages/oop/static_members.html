@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Static Members</title>
+<body style="padding: 0 10% 0">
+  <h3>Объект</h3>
+  <p>
+**Объект** — это **именованная сущность**, одновременно содержащая данные(свойства) и поведения(методы).
+Слово «одновременно» в данном случае определяет ключевую разницу между ООП и 
+другими методологиями программирования. Например, при процедурном программировании 
+код размещается в полностью отдельных функциях или процедурах.
+</p>
+<p>
+**КЛАСС** - это шаблон, предназначенный для создания объектов.
+Класс - это именованная сущность из предметной области, возможно, имеющая 
+предка (суперкласс), определенная как набор полей и методов.
+
+В JavaScript классы можно организовать по-разному. Говорят, что класс User написан 
+в «функциональном» стиле. Далее мы также увидим «прототипный» стиль.
+</p>
+<h3>Статическое поле или метод.</h3>
+
+СТАТИЧЕСКОЕ ПОЛЕ хранит данные, специфичные не для одного объекта, а для всего класса  целиком. Как правило это константы.
+
+`    private static instance: Config;`
+
+
+СТАТИЧЕСКИЙ МЕТОД: 
+  * не использует состояние объекта и использует свойства, передаваемые в параметрах.
+  * Статический метод также можно использовать для функций, которые вообще не требуют наличия объекта. Например, просто форматируем передаваемую дату.
+  * Статический метод определяется ключевым словом static.
+
+`  static staticMethod() { return 'Вызван статический метод'; }`
+
+https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Classes/static
+
+`class StaticMethodCall {
+  static staticMethod() {
+    return 'Вызван статический метод';
+  }
+  static anotherStaticMethod() {
+    return StaticMethodCall.staticMethod() + ' из другого статического метода';
+  }
+}`
+`StaticMethodCall.staticMethod();  //  'Вызван статический метод'`
+
+`StaticMethodCall.anotherStaticMethod();  //  'Вызван статический метод из другого статического метода'`
+
+Статические методы недоступны напрямую, используя ключевое слово this из нестатических методов. 
+Вам нужно вызвать их с помощью имени класса: CLASSNAME.STATIC_METHOD_NAME() или вызовом 
+метода как свойства конструктора: this.constructor.STATIC_METHOD_NAME().
+<pre>
+class StaticMethodCall {
+  constructor() {
+    console.log(StaticMethodCall.staticMethod()); 
+    // 'вызван статический метод.' 
+
+    console.log(this.constructor.staticMethod()); 
+    // 'вызван статический метод.' 
+  }
+
+  static staticMethod() {
+    return 'вызван статический метод.';
+  }
+}
+
+class Triple {
+  static triple(n) {
+    if (n === undefined) {
+      n = 1;
+    }
+    return n * 3;
+  }
+}
+
+class BiggerTriple extends Triple {
+  static triple(n) {
+    return super.triple(n) * super.triple(n);
+  }
+}
+
+console.log(BiggerTriple.triple(3));
+// 81 (не затрагивается экземпляром родителя)
+
+console.log(tp.triple());
+// Выведет сообщение, что "tripple" не является
+// функцией ('tp.tripple is not a function').
+
+
+В ECMAScript 6 вы можете создавать статические функции, используя ключевое слово static :
+class Foo {
+  static bar() {return 'I am static.'}
+}
+
+//'bar' is a property of the class
+Foo.bar() // returns 'I am static.'
+
+//'bar' is not a property of instances of the class
+var foo = new Foo()
+foo.bar() //-> throws TypeError
+
+
+`class MyClass {
+    constructor() {
+        this._privateVariable = "Private variable";  // Private variable 
+        this.publicVariable = "Public variable";  // Public variable 
+    }
+    get privateVariable() {
+        return this._privateVariable;
+    };
+    set privateVariable(val) {
+        this._privateVariable = (val < 0) ? 0 : val;
+    };
+}`
+</pre>
+<h4>External links:</h4>
+<ul>
+  <li><a href="https://learn.javascript.ru/static-properties-and-methods" target="blank">На русском сайт Ильи Кантора</a></li>
+</ul>
+  </body>
+</html>

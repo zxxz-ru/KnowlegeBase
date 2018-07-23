@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  p {
+    width: 80%;
+      margin 0 auto;
+  }
+</style>
+<title>TypeScript Installation and setting up Environment</title>
+</head>
+<body style="padding: 0 10% 0">
+  <div>
+    <p>
+    Recomended Installation typescript with this command:<br/>
+    <b>npm i typescript@2.1.5 --save-dev</b><br/>
+    I simply put it as dependency on package.json and then used:<b>npm i</b>
+    </p>
+    <p>
+    The Trick with <b>tsc</b> that it isn't globaly installed and thus is not in $PATH. To run <b>tsc</b>
+    full relative path must be used. find -name tsc in root dir of Project give such result:<br/>
+    <b>
+      ./node_modules/tsutils/node_modules/.bin/tsc<br/>
+./node_modules/typescript/bin/tsc<br/>
+./node_modules/.bin/tsc<br/>
+./node_modules/tslint/node_modules/.bin/tsc<br/>
+</b>
+I used <b>./node_modules/typescript/bin/tsc --outDir build</b> workes for compilation  and puts compiled files in ./build for some reason it doesn't work
+if I put outDir option in tsconfig file. My tsconfig was:</p>
+<pre>
+{
+  CompilerOptions: {
+  baseDir: .,
+  rootDir: ./src,
+  target : ES6,
+  module: system,
+  moduleResolution: node,
+  removeComments: true
+  },
+  exclude: [node_modules]
+  }
+</pre>
+  </div>
+  <div>
+    <h5>Questions:</h5>
+    <ul style="list-style-type: none">
+      <li>What lib types I must specify in tsconfig file. And how do I find relevant Information  about reqirements?</li> 
+      <li>What module I must use? --outFile can be used only with System/AMD</li>
+      <li>I don't know what is CommonJS</li>
+    </ul>
+  </div>
+  <div>
+    <p>Must read  About Module Resolution first, then tsconfig. </p>
+  </div>
+  <h4>External Links:</h4>
+  <ul>
+    <li><a href="" target="_blank"></a></li>
+    <li><a href="" target="_blank"></a></li>
+    <li><a href="https://www.typescriptlang.org/docs/handbook/module-resolution.html" target="_blank">About Module Resolution</a></li>
+    <li><a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html" target="_blank">About tsconfig.json</a></li>
+    <li><a href="https://www.typescriptlang.org/docs/handbook/compiler-options.html" target="_blank">Official Documentation for tsc Compailer Options</a></li>
+    <li><a href="" target="_blank"></a></li>
+  </ul>
+</body>
+</html>

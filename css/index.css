@@ -1,0 +1,14 @@
+.undrscr {
+text-decoration: underline;
+}
+.section {
+  width: 100%;
+  margin: auto;
+}
+.section_title {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+.sub_section_title {
+  font-size: 1.2em;
+}
