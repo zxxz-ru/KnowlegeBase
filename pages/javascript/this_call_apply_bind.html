@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body style="padding: 0 10% 0">
+  <div>
+    <p>
+    <b>this</b> Любая функция может иметь в себе this. Совершенно неважно, объявлена ли она в объекте или отдельно от него.
+      Значение this называется контекстом вызова и будет определено в момент вызова функции.
+      Ключевое слово this используется для доступа к текущему объекту из метода.
+      Значением this является объект перед «точкой», в контексте которого вызван метод.
+      Если одну и ту же функцию запускать в контексте разных объектов, она будет получать разный this.
+      Значение this не зависит от того, как функция была создана, оно определяется исключительно в момент вызова.
+    </p>
+    <h4>Пример как может потеряться контекст:</h4>
+    <pre>
+    var user = {
+      name: "Вася",
+      hi: function() { alert(this.name); },
+      bye: function() { alert("Пока"); }
+    };
+    
+    user.hi(); // Вася (простой вызов работает)
+    
+    // а теперь вызовем user.hi или user.bye в зависимости от имени
+    // смотрим внимательно на скобки
+    (user.name == "Вася" ? user.hi : user.bye)(); // undefined
+    </pre>
+  </div>
+  <div>
+    <p>
+    <b>Arrow functions</b> An arrow function expression has a shorter syntax than a function expression and does not
+    have its own this, arguments, super, or new.target. These function expressions are best suited for
+    non-method functions, and they cannot be used as constructors. An arrow function does not have its own this;
+    the this value of the enclosing execution context is used. Thus, in the following code,
+    the this within the function that is passed to setInterval has the same value as this in the enclosing function:
+    <pre>
+    function Person(){
+  this.age = 0;
+
+  setInterval(() => {
+    this.age++; // |this| properly refers to the Person object
+  }, 1000);
+}
+
+var p = new Person();
+    </pre>
+    Given that this comes from the surrounding lexical context, strict mode rules with regard to this
+    in arrow functions are ignored.
+    </p>
+  </div>
+  <h4>External Links:</h4>
+  <ul>
+    <li><a href="http://learn.javascript.ru/object-methods" target="_blank">Кантор Илья о this.</a></li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank">
+      mdn about arrow functions</a></li>
+    <li><a href="https://stackoverflow.com/questions/22939130/when-should-i-use-arrow-functions-in-ecmascript-6?rq=1" target="_blank">
+      Where to use Arrow Functions. See answer by lyschoening</a></li>
+    <li><a href="" target="_blank"></a></li>
+  </ul>
+</body>
+</html>
