@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body style="padding: 0 10% 0">
+  <div>
+    <p><b>__proto__</b>свойство объекта. accessor property ( has get and set in propertyDescription Object ) </p>
+    <ul>
+      <li><p>Свойство самого объекта? Да. каждый объект автоматически имеет это свойство. Это указатель на
+      свойстово prototype функции-конструктора объекта, который равен объекту  первому в цепочке прототипов для самого объекта.
+      Т.е const obj = {} уже сразу наследует методы Object по прототипной цепочке. Так его свойство __proto__ == Object</p></li>
+
+      <li>Что будет если создать объект литерал и мне нужен прототип другог объекта, а
+      если друго объекта?</li>
+      <li>Как передать прототип в объект созданный с new?</li>
+      <li></li>
+    </ul>
+  </div>
+  <div>
+    <p><b>prototype</b>свойство функции-конструктора. При создании объекта через new, в __proto__  создаваемого объекта
+    записывается ссылка из prototype функции-конструктора. В prototype находиться ссылка на объект который записывается
+    в __proto__ создаваемого объекта и является звеном цепи прототипного наследования. Могу ли я думать о свойстве
+    prototype как о трафарете? Конкретный объект с его аттрибутами?</p>
+    <ul>
+      <li>Как посмотреть на то чему именно равен prototype.constructor? Распечатать его?</li>
+      <li>Что же именно такое prototyp и для чего он вообще нужен? Можно же использовать свойство __proto__.</li>
+      <li>Как используется prototype? </li>
+      <li>prototype - это статические свойства? </li>
+      <li></li>
+    </ul>
+  </div>
+  <p>
+  Every object can have another object as its prototype. Then the former object inherits all of its prototype’s properties.
+  An object specifies its prototype via the internal property [[Prototype]]. The chain of objects connected
+  by the [[Prototype]] property is called the prototype chain.
+  в Функции конструкторе в переменной prototype тот указатель на то что будет записано в прототип (__proto__) создаваемого объекта.
+  </p>
+  <p>Свойства переданные из prototype как они работают с Object.assign</p>
+  <h4>External Links:</h4>
+  <ul>
+    <li><a href="https://hackernoon.com/understand-nodejs-javascript-object-inheritance-proto-prototype-class-9bd951700b29" target="_blank">Статья на хакер нун.</a></li>
+    <li><a href="http://www.javascripttutorial.net/javascript-prototype/" target="_blank">Тут всё объяснено понятным языком</a></li>
+    <li><a href="" target="_blank"></a></li>
+  </ul>
+</body>
+</html>
