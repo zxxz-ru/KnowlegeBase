@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body style="padding: 0 10% 0">
+  <h2>Some command line commands to start working with Postgresql</h2>
+  <h3>Right after installation:</h3>
+  <p>To open connection to psql must type: <b>sudo -u postgres psql</b> and enter sudo password.</p>
+  <br/>
+  <br/>
+  <h3>Create Role for user:</h3>
+  <p><b>CREATE ROLE name of user WITH PASSWORD 'password';</b></p>
+  <p><b>ALTER ROLE name of user WITH LOGIN;</b></p>
+  <p><b>ALTER ROLE name of user WITH CREATEDB</b></p>
+  <p>Have tried to do all in one statement for some reason it was impossible.</p>
+  <br/>
+  <br/>
+  <h3>To import db from tar file:</h3>
+  <p><b>psql postgres -U name of user -h 127.0.0.1;</b> Must conect to server first.</p>
+  <p><b>CREATE DATABASE name of database;</b> Create db.</p>
+  <p><b>\q</b> Drop connection to server.</p>
+  <p><b>pg_restore -v -d name of database -U name of user -h host (I used localhost) path to tar file;</b></p>
+  <br/>
+  <br/>
+</body>
+</html>
