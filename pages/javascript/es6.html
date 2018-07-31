@@ -9,7 +9,7 @@
     <h3>ES6 features:</h3>
     <ul>
       <li><a href="#let_const">const и let</a></li>
-      <li><a href="#arrow function">arrow function</a></li>
+      <li><a href="#arrow_function">arrow function</a></li>
       <li><a href="#классы">классы</a></li>
       <li><a href="#str_tmpl">шаблонные строки</a></li>
       <li><a href="#">spread operator</a></li>
@@ -28,8 +28,19 @@
   </p>
 </div>
 
-<div id="">
-  <p><h4></h4></p>
+<div id="arrow_function">
+  <p><h4>arrow function</h4>
+  this in arrow function is taken form outer context. <a href="https://jsfiddle.net/zxxz_ru/gzLyje86/27/" target="_blank">Example on fiddle.net</a><br/>
+  Can not call function with new key word.<br/>
+  No own arguments, will get then from enclosing function. <a href="https://jsfiddle.net/zxxz_ru/ae249fLp/" target="_blank">Example on fiddle.net</a><br/>
+  Kак только тело функции оборачивается в {…}, то её результат уже не возвращается автоматически, необходим return.<br/>
+  () => {}  это не то же самое, что .bind(this)
+Есть тонкое различие между функцией стрелкой => и обычной функцией, у которой вызван .bind(this):
+Вызовом .bind(this) мы передаём текущий this, привязывая его к функции.
+При => привязки не происходит, так как функция стрелка вообще не имеет контекста this. Поиск this в ней осуществляется так же, как и поиск обычной переменной, то есть, выше в замыкании. До появления стандарта ES-2015 такое было невозможно.
+  </p>
+  <p><a href="http://learn.javascript.ru/es-function" target="_blank">Learn javascript</a></p>
+  <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank">MDN</a></p>
 </div>
 
 <div id="">
@@ -45,8 +56,9 @@
   String templates are made with backticks  and are one of <a href="https://jsfiddle.net/zxxz_ru/9gsomja1/" target="_blank">basic types </a>of javascript.
   In string templates string formatting is preserved. No need to type \n for new line.
   <a href="https://stackoverflow.com/questions/242813/when-to-use-double-or-single-quotes-in-javascript" target="_blank">Here</a> is good discussion on
-  Stackoverflow about difference between single quoted and double quoted strings.
-  </p>
+  Stackoverflow about difference between single quoted and double quoted strings. <br/>
+  <i>Strings templates not always working correctly with Typescript. Also had  some troubles with them in fiddle.het</i>
+  </p
 </div>
 
 <div id="">
