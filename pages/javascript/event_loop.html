@@ -5,16 +5,17 @@
 <title></title>
 </head>
 <body style="padding: 0 10% 0">
-  <p>Think about Heap, Queue, Stack. All messages goes to Queue and Stack goes to executing function
-  until they all are fully done. While executing messages from Queue
+  <p>Think about Heap, Events Queue, Stack. Message when the job is done in Events Demultiplexer goes to Events Queue,
+  when/if Stack is empty function callback goes to execution. While executing messages from Events Queue
   this execution will have it's own Stack. See external links.
   setTimeout is one of functions that introduce another player - WebAPI, which is delaying execution
-  of callback function. 
+  of callback function. And is not part of Javascript, functionality is provided by Browser.
   </p>
   <h4>External Links:</h4>
   <ul>
     <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop" target="_blank">MDN</a></li>
     <li><a href="https://www.youtube.com/watch?v=8cV4ZvHXQL4" target="_blank">You tube video to visualize concepts.</a></li>
+    <li><a href="https://drive.google.com/file/d/1krQ3h_fXp9eCuMPtUC3XHOQ46QJrXBfk/view" target="_blank">Шаблоны проектирования в Node JS, pg 37</a></li>
   </ul>
 </body>
 </html>
