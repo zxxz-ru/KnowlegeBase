@@ -8,20 +8,38 @@
   <div>
     <p><b>__proto__</b> свойство  анонимного объекта (анонимный объект - это прототип объекта).
     __proto__ является accessor property ( has get and set in propertyDescription Object ). </p>
-    Object.getPrototypeOf(object1) вернёт то на щто указывает свойство __proto__ анонимного объекта.
+    Object.getPrototypeOf(object1) вернёт то на что указывает свойство __proto__ анонимного объекта.
     instanceObject.isProtorypeOf(anotherObject) вернёт true если __proto__ of anotherObject points to
     анонимный объект instanceObject.Каждый объект автоматически имеет это свойство.
     Цепочка прототипов  объектов использует это свойство для связи между прототипами объектов.
     const obj = {} уже сразу наследует методы Object по прототипной цепочке. Его свойство __proto__ == Object (анонимный объект)
     <ul>
       <li>Что будет если создать объект и мне нужен прототип другог объекта?
-      <p>Object.setPrototypeOf(obj, prototype) рекомендуемый метод. Можно ещё
+      <p><b>Object.setPrototypeOf(obj, prototype)</b> рекомендуемый метод. Можно ещё
       obj.__proto__ = anotherObj, но могут возникнуть проблемы с поддержкой браузеров.
       </p></li>
-      <li>Как передать прототип в объект при создании?<p>Object.create(proto[, propertiesObject])
-      т.е. примерно так : Rabbit.prototype = Object.create(Animal.prototype); теперь Rabbit
+      <li>Как передать прототип в объект при создании?
+      <p><b>Object.create(proto[, propertiesObject])</b>
+      т.е. примерно так : <b>Rabbit.prototype = Object.create(Animal.prototype);</b> теперь Rabbit
       унаследовал все enumerable свойства объекта Animal. Для того чтобы при создании объекта с  new необходимо пересохранить
-      свойство constructor так: Rabbit.prototype.constructor = Rabbit;</p></li>
+      свойство constructor так: <b>Rabbit.prototype.constructor = Rabbit;</b>
+      <pre>
+          function Employee (name, section) {
+          this.name = name;
+          this.section = section;
+          }
+
+          function Manager (name , section, report) {
+          Employee.call(this, name, section); // call function Employee within this context, pass arguments
+          // Employee.apply(this, arguments); // the same as above, only use arguments property of function and call them as [] 
+          this.report = report;
+          }
+
+          Manager.prototype = Object.create(Employee.prototype);
+          Manager.prototype.constructor = Manager;
+          console.log(new Manager("Will", "backoffice", "bla-bla").name); // Will
+</pre>
+      </p></li>
     </ul>
   </div>
   <div>
