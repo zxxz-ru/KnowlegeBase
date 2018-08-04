@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title></title>
 </head>
-<body style="padding: 0 10% 0">
+<body style="padding: 0 20% 0">
   <ul>
 <li><a href="#1">Как добавить файлы в коммит?</a></li>
 <li><a href="#2">Как добавить чанки?</a></li>
@@ -30,31 +30,66 @@
 <li><a href="#22">Что такое хуки?</a></li>
     <li><a href="" target="_blank"></a></li>
   </ul>
-<p><b id="1"> Как добавить файлы в коммит?</b> git add -A (--no-ignore-removal) добавит к комиту удалённые файлы.</p>
+  <p><b id="1"> Как добавить файлы в коммит?</b> git add -A (--no-ignore-removal) добавит к комиту удалённые из стажед файлы.
+  Т.е. если есть необходимость не коммитить какие-то файлы то эту комманду лучьше не применять.</p>
+
 <p><b id="2"> Как добавить чанки?</b> </p>
-<p><b id="3"> Почему нельзя добавлять файлы по звезде или точке?</b> Есть опастность добавит файлы  которые были удалены из рабочего дерева.</p>
-<p><b id="4"> Пуш.</b> Запись в удаленный репозеторий.</p>
-<p><b id="5"> Чем опасен пуш с форсом?</b> Если кто-то уже сделал изменемия в бранч они будут потеряны.</p>
-<p><b id="6"> Что такое фастфовард?</b> По сути ничего не меняется просто HEAD будет указывать на коммит. </p>
+
+<p><b id="3"> Почему нельзя добавлять файлы по звезде или точке?</b> В новой версии по точке будет добавлена только текущая dir.
+И будут так же добавлены файлы удалённые из гит дерева. Т.е те которые должны были остаться вне коммита.
+Если надо добавить всё начиная с корневой директории использовать надо :/ Есть опастность добавит файлы  которые были удалены из рабочего дерева.
+<a href="https://ru.stackoverflow.com/questions/431839/%D0%92-%D1%87%D0%B5%D0%BC-%D1%80%D0%B0%D0%B7%D0%BD%D0%B8%D1%86%D0%B0-%D0%BC%D0%B5%D0%B6%D0%B4%D1%83-git-add-add-a-add-u-%D0%B8-add"
+  target="_blank">Stackoverflow about git add</a></p>
+
+<p><b id="4"> Пуш.</b>
+Pushing a branch means to get the branch’s head ref from a remote repository,
+find out if it is an ancestor to the branch’s local head ref, and in that case, putting all objects,
+which are reachable from the local head ref, and which are missing from the remote repository,
+into the remote object database, and updating the remote head ref.
+If the remote head is not an ancestor to the local head, the push fails. <p>
+<p><b id="5"> Чем опасен пуш с форсом?</b> Если кто-то уже сделал изменемия в бранч они будут потеряны. git push --force переписывает историю комитов на сервере.</p>
+
+<p><b id="6"> Что такое фастфовард?</b> Move HEAD of merge in branch to top of branch which is merging.</p>
+
 <p><b id="7"> Как создать и удалить ветку, локально и в origin`е.</b> 
 Local: git branch [branch-name], git branch -d [branch-name] <br/>
 Remote: git  push origin [branch-name] or git  push origin [branch-name]:[new branch-name] to delete git push origin :[branch-name] пробел обязателен!
+или просто git push --delete [branch-name]
 </p>
-<p><b id="8"> Как привязать локальную ветку "a1" к удаленной ветке "b2", и пушить в нее?</b> git branch -u a1 origin/b2, если не давать имя то дефолт на текущую.</p>
-<p><b id="9"> Как получить список комитов из локальной ветки, которую вы только что удалили?</b> git log --branch [name]</p>
-<p><b id="10"> Сколько веток может указывать на один коммит?</b> 'branches are free' не совсем но я думаю сколько угодно веток может указывать на какой-то коммит.</p>
+
+<p><b id="8"> Как привязать локальную ветку "a1" к удаленной ветке "b2", и пушить в нее?</b> git branch -u a1 origin/b2 [-u upstream], если не давать имя то дефолт на текущую.</p>
+
+<p><b id="9"> Как получить список комитов из локальной ветки, которую вы только что удалили?</b> git reflog  и посмотреть историю указателей.</p>
+
+<p><b id="10"> Сколько веток может указывать на один коммит?</b> 'branches are free' я думаю сколько угодно веток может указывать на какой-то коммит. Пока
+ветка не merged она будет указывать на коммит.</p>
+
 <p><b id="11"> Что такое мердж? Как его откатить?</b> git reset --merge</p>
+
 <p><b id="12"> Какие бывают стратегия мерджа?</b> resolve, recursive, octopus, ours, subtree </p>
+
 <p><b id="13"> Что такое ребейз?</b> Сдвиг истории всей ветки на другую ветку, история выглядит так, как будто изменения были в одной ветке.
-И позволяет переносить например готовые части в основную ветку. Do not rebase commits that exist outside your repository.</p>
+И позволяет переносить например готовые части в основную ветку. После ребаза merge command всё равно нужна.
+Do not rebase commits that exist outside your repository.</p>
+
 <p><b id="14"> Зачем нужен пулл по ребейзу?</b> </p>
+
 <p><b id="15"> Что такое черрипик?</b> </p>
+
 <p><b id="16"> Как перименовать коммит?</b> git commit --amend</p>
+
 <p><b id="17"> Как удалить последний?</b> </p>
+
 <p><b id="18"> Как удалить коммит из середины и запушить его?</b> git push [remotename] [commit SHA]:[remotebranchname]</p>
+
 <p><b id="19"> В каких случаях так можно делать, а в каких нет?</b> </p>
-<p><b id="20"> Как пользоваться reflog?</b> </p>
+
+<p><b id="20"> Как пользоваться reflog?</b> A reflog shows the local "history" of a ref - unic identifiers of Object .
+In other words, it can tell you what the 3rd last revision in this repository was, and what was the current state in this repository, yesterday 9:14pm.
+</p>
+
 <p><b id="21"> bisect</b> </p>
+
 <p><b id="22"> Что такое хуки?</b> </p>
 </body>
 </html>
