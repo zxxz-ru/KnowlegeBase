@@ -30,8 +30,14 @@
 <li><a href="#22">Что такое хуки?</a></li>
     <li><a href="" target="_blank"></a></li>
   </ul>
-  <p><b id="1"> Как добавить файлы в коммит?</b> git add -A (--no-ignore-removal) добавит к комиту удалённые из стажед файлы.
-  Т.е. если есть необходимость не коммитить какие-то файлы то эту комманду лучьше не применять.</p>
+  <p>
+  <b id="1"> Как добавить файлы в коммит?</b> 
+  <div>
+    git 1.*<br/>
+    <img src="https://i.stack.imgur.com/YfLUZ.jpg"/></div>
+  git 2.*<br/>
+  <div> <img src="https://i.stack.imgur.com/KwOLu.jpg"/></div>
+  </p>
 
 <p><b id="2"> Как добавить чанки?</b> </p>
 
@@ -64,22 +70,45 @@ Remote: git  push origin [branch-name] or git  push origin [branch-name]:[new br
 <p><b id="10"> Сколько веток может указывать на один коммит?</b> 'branches are free' я думаю сколько угодно веток может указывать на какой-то коммит. Пока
 ветка не merged она будет указывать на коммит.</p>
 
-<p><b id="11"> Что такое мердж? Как его откатить?</b> git reset --merge</p>
+<p><b id="11"> Что такое мердж? Как его откатить?</b> git reset --hard стерает всё полностью,  git reset --merge оставит изменения, если уже успели поработать.</p>
 
 <p><b id="12"> Какие бывают стратегия мерджа?</b> resolve, recursive, octopus, ours, subtree </p>
 
 <p><b id="13"> Что такое ребейз?</b> Сдвиг истории всей ветки на другую ветку, история выглядит так, как будто изменения были в одной ветке.
-И позволяет переносить например готовые части в основную ветку. После ребаза merge command всё равно нужна.
-Do not rebase commits that exist outside your repository.</p>
+И позволяет переносить например готовые части в основную ветку.
+Do not rebase commits that exist outside your repository.
+Ещё полеьно помнить о командах позволяющих сливать вместе коммиты и позволяющих изменять что-то внутри сливающихся: git rebase -i
+pick, squash, edit. После того как внесли изменения в файл как обычно: git add ; git commit --amend;  git rebase --continue; Если что-то пошло не так git rebase --abort;
+</p>
 
 <p><b id="14"> Зачем нужен пулл по ребейзу?</b> git pull --rebase Можно использовать вместо git fetch, git rebase, git попытается автоматически
 понять как смержить ветки которые были rebase на server'е.</p>
 
-<p><b id="15"> Что такое черрипик?</b> </p>
+<p><b id="15"> Что такое черрипик?</b>
+<pre>
+Ответ со Stackoverflow:
+$ git checkout rel_2.3
+$ git cherry-pick dev~2 # commit F, above
+  <div>
+    before<br/>
+    <img src="https://i.stack.imgur.com/R4nfN.png"/>
+    </div>
+  <div>
+    after<br/>
+    <img src="https://i.stack.imgur.com/23fCh.png"/>
+    </div>
+</pre>
+Using git cherry-pick The command git cherry-pick commit applies the changes introduced by the named commit on the current branch.
+It will introduce a new, distinct commit. Strictly speaking, using git cherry-pick doesn’t alter the existing history within
+a repository; instead, it adds to the history. As with other Git operations that introduce changes via the process of applying
+a diff, you may need to resolve conflicts to fully apply the changes from the given commit . The command git cherry-pick
+is typically used to introduce particular commits from one branch within a repository onto a different branch. A common use
+is to forward- or back-port commits from a maintenance branch to a development branch.
+</p>
 
-<p><b id="16"> Как перименовать коммит?</b> git commit --amend</p>
+<p><b id="16"> Как перименовать коммит?</b> git commit --amend, если в середине то: git checkout [sha]; git revert -e</p>
 
-<p><b id="17"> Как удалить последний?</b> </p>
+<p><b id="17"> Как удалить последний commit?</b> git reset --hard HEAD~1</p>
 
 <p><b id="18"> Как удалить коммит из середины и запушить его?</b> git push [remotename] [commit SHA]:[remotebranchname]</p>
 
