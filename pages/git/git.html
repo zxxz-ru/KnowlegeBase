@@ -110,12 +110,25 @@ is typically used to introduce particular commits from one branch within a repos
 is to forward- or back-port commits from a maintenance branch to a development branch.
 </p>
 
-<p><b id="16"> Как перименовать коммит?</b> git commit --amend, если в середине то: git checkout [sha]; git revert -e</p>
+<p><b id="16"> Как перименовать коммит?</b>
+  <pre>
+   git commit --amend // если последний
+   git rebase -i HEAD~{commit number from top}
+   In todo file change pick to edit save and exit.
+   git commit --amend
+   git rebase --continue
+  </pre>
+  </p>
 
 <p><b id="17"> Как удалить последний commit?</b> git reset --hard HEAD~1</p>
 
-<p><b id="18"> Как удалить коммит из середины и запушить его?</b> git push [remotename] [commit SHA]:[remotebranchname]</p>
-
+<p><b id="18"> Как удалить коммит из середины и запушить его?</b><br/>
+  <pre>
+  git push [remotename] [commit SHA]:[remotebranchname]
+  git rebase -onto branch-name~{commit number to start} branch-name~{commit number to end} branch-name
+</pre>
+<a href="https://www.clock.co.uk/insight/deleting-a-git-commit" target="_blank">Very good explanation with two methods.</a>
+</p>
 <p><b id="19"> В каких случаях так можно делать, а в каких нет?</b> </p>
 
 <p><b id="20"> Как пользоваться reflog?</b> A reflog shows the local "history" of a ref - unic identifiers of Object .
@@ -124,9 +137,12 @@ In other words, it can tell you what the 3rd last revision in this repository wa
 
 <p><b id="21"> bisect</b> </p>
 
-<p><b id="22"> Что такое хуки?</b> </p>
-<p><b id="23" Как искать по коммитам?</b>
-git grep <regexp> $(git rev-list --all -- lib/util) -- lib/util
+<p><b id="22"> Что такое хуки?</b><br/>
+<a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks" target="_blank">Git Book</a><br/>
+<a href="http://uleming.github.io/gitbook/5_%D0%A5%D1%83%D0%BA%D0%B8_git.html" target="_blank">На русском</a><br/>
+</p>
+<p><b id="23"> Как искать по коммитам?</b>
+git grep {regexp} $(git rev-list --all -- lib/util) -- lib/util
 </p>
 </body>
 </html>
