@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>IoC, DI, Dependency Inversion</title>
+</head>
+<body style="padding: 0 20% 0">
+  <h4>Inversion of Controll.</h4>
+  <div>
+    <p>Whole Nodejs is good example of IoC. "Don't call us, we'll call You." Event Driven development.
+    Controll of applicatoin flow is passed to framework, another good example is Observer Pattern.
+    Subject is controlling Observers.
+    </p>
+    <a href="https://en.wikipedia.org/wiki/Inversion_of_control" target="_blank">Wikipedia.</a>
+  </div>
+  <h4>Dependency Injection.</h4>
+  <div>
+    <p>Dependenceis are passed to module, module's behavior depends on whatever passed values are.
+        Strategy Pattern, Factory Pattern. Module is controlled by top layer. The key benefit of a
+        Dependency Injector is that it removes the dependency that the class has on the concrete implementation.
+    </p>
+    <a href="https://martinfowler.com/articles/injection.html" target="_blank">Article with examples and different types of injection.</a>
+  </div>
+</body>
+</html>
