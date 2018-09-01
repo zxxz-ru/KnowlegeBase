@@ -5,9 +5,169 @@
 <title>Typeorm CRUD</title>
 </head>
 <body style="padding: 0 20% 0">
-  <h4>Title of topic</h4>
+  <h4>Get EntityManager or Repository</h4>
+  <div>
+    <p>
+        <pre>
+import {getConnection} from "typeorm";
+import {User} from "../entity/User";
+
+export class UserController {
+
+    @Get("/users")
+    getAll() {
+        return getConnection().manager.find(User); // method one to get EntityManager
+    }
+}
+
+import {getManager, getRepository} from "typeorm";
+import {User} from "../entity/User";
+// connection is created somewhere else before
+export class UserController {
+
+    @Get("/users")
+    getAll() {
+        return getManager().find(User);
+    }
+
+    @Get("/users/:id")
+    getAll(@Param("id") userId: number) {
+        return getRepository(User).findOne(userId);
+    }
+
+}
+        </pre>
+        getRepository(Entity), Connection.getRepository(Entity), and EntityManager.getRepository(Entity) same functionality methods,
+        will return repository to work witn Entity.<br/>
+        (EntityManager | Repository).createQueryBuilder("user") repository and manager both have ability to create create QueryBuilder.
+
+    </p>
+  </div>
+  <h4>CRUD EntityManager's and Repository's (are same)</h4>
+  <div>
+    <p>
+
+  <h5>save</h5>
+  <div>
+    <p>Saves a given entity or array of entities. If the entity already exists in the database, then it's updated.
+       If the entity does not exist in the database yet, it's inserted. It saves all given entities in a single
+       transaction (in the case of entity manager is not transactional). Also supports partial updating since all
+       undefined properties are skipped. In order to make a value NULL, you must manually set the property to equal null.</p>
+    <pre>
+        await manager.save(user);
+        await manager.save([
+            category1,
+            category2,
+            category3
+        ]);
+    </pre>
+  </div>
+
+  <h5>insert</h5>
+  <div>
+    <p>Inserts a new entity, or array of entities.</p>
+    <pre>
+        await manager.insert(User, { 
+            firstName: "Timber", 
+            lastName: "Timber" 
+        });
+        
+        await manager.insert(User, [{ 
+            firstName: "Foo", 
+            lastName: "Bar" 
+        }, { 
+            firstName: "Rizz", 
+            lastName: "Rak" 
+        }]);
+    </pre>
+  </div>
+
+  <h5>update</h5>
   <div>
     <p></p>
+    <pre>
+            await manager.update(User, { firstName: "Timber" }, { firstName: "Rizzrak" });
+            // executes UPDATE user SET firstName = Rizzrak WHERE firstName = Timber
+            
+            await manager.update(User, 1, { firstName: "Rizzrak" });
+            // executes UPDATE user SET firstName = Rizzrak WHERE id = 1
+    </pre>
+  </div>
+
+  <h5>delete</h5>
+  <div>
+    <p>Deletes entities by entity id, ids or given conditions:</p>
+    <pre>
+            await manager.delete(User, 1);
+            await manager.delete(User, [1, 2, 3]);
+            await manager.delete(User, { firstName: "Timber" });
+    </pre>
+  </div>
+
+  <h5>remove</h5>
+  <div>
+    <p>Removes a given entity or array of entities. It removes all given entities in a single transaction
+        (in the case of entity, manager is not transactional).</p>
+    <pre>
+            await manager.remove(user);
+            await manager.remove([
+                category1,
+                category2,
+                category3
+            ]);
+    </pre>
+  </div>
+
+  <h5>clear</h5>
+  <div>
+    <p>Clears all the data from the given table (truncates/drops it).</p>
+    <pre>
+            await manager.clear(User);
+    </pre>
+  </div>
+    </p>
+  </div>
+
+  <h4>CRUD using Query Builder</h4>
+  <div>
+    <p>
+        <h5>insert</h5>
+        <pre>
+                import {getConnection} from "typeorm";
+
+                await getConnection()
+                    .createQueryBuilder()
+                    .insert()
+                    .into(User)
+                    .values([
+                        { firstName: "Timber", lastName: "Saw" }, 
+                        { firstName: "Phantom", lastName: "Lancer" }
+                     ])
+                    .execute();
+        </pre>
+        <h5>update</h5>
+        <pre>
+                import {getConnection} from "typeorm";
+
+                await getConnection()
+                    .createQueryBuilder()
+                    .update(User)
+                    .set({ firstName: "Timber", lastName: "Saw" })
+                    .where("id = :id", { id: 1 })
+                    .execute();
+        </pre>
+        <h5>delete</h5>
+        <pre>
+                import {getConnection} from "typeorm";
+
+                await getConnection()
+                    .createQueryBuilder()
+                    .delete()
+                    .from(User)
+                    .where("id = :id", { id: 1 })
+                    .execute();
+        </pre>
+    </p>
   </div>
   <h4>Title of topic</h4>
   <div>
