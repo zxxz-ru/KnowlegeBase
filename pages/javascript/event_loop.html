@@ -2,7 +2,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
+<style>
+p {width: 60%;}
+</style>
+<title>Event loop.</title>
 </head>
 <body style="padding: 0 10% 0">
   <p>Think about Heap, Events Queue, Stack. Message when the job is done in Events Demultiplexer goes to Events Queue,
@@ -10,12 +13,17 @@
   this execution will have it's own Stack. See external links.
   setTimeout is one of functions that introduce another player - WebAPI, which is delaying execution
   of callback function. And is not part of Javascript, functionality is provided by Browser.
+  Page is painted apx. 60 times a second.
+  setTimeout(cb, 0); will place cb to the end of Event Queue immediately.
+  jsetTimeout() and setImmediate() the same functionality, but if setImmediate() and setTimeout are set inside IO
+  setImmediate() will be executed first.
+  process.nextTick() unshift Event Quieue and keep call stack context. So if it's run inside function it will execute
+  as last call in the same function.
   </p>
-  <h4>External Links:</h4>
+  <h4>Links:</h4>
   <ul>
     <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop" target="_blank">MDN</a></li>
     <li><a href="https://www.youtube.com/watch?v=8cV4ZvHXQL4" target="_blank">You tube video to visualize concepts.</a></li>
-    <li><a href="https://drive.google.com/file/d/1krQ3h_fXp9eCuMPtUC3XHOQ46QJrXBfk/view" target="_blank">Шаблоны проектирования в Node JS, pg 37</a></li>
   </ul>
 </body>
 </html>
