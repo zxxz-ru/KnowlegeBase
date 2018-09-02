@@ -6,35 +6,6 @@
 </head>
 <body style="padding: 0 10% 0">
   <div>
-    <b>OOP</b><br/>
-    <p>Object-oriented programming is an approach to designing modular reusable software systems. </p>
-  </div>
-  <div>
-    <b>Class</b><br/>
-    <p>the <u>definition</u> for the data format and available procedures for a given type or class of object;</p>
-    <p>A class is a blueprint or prototype from which objects are created</p>
-    <p>
-**КЛАСС** - это шаблон, предназначенный для создания объектов.
-Класс - это именованный тип сущности из предметной области, возможно, имеющая 
-предка (суперкласс), определенная как набор полей и методов.
-    </p>
-  </div>
-  <div>
-    <b id="Object">Object</b><br/>
-    <p>In Dictionary: a material thing that can be seen and touched.</p>
-    <p> In OOP: a particular instance of a Class, where the object can be a combination of variables, functions, and data structures.</p>
-    <p>Объект — это именованная сущность, <u>одновременно</u> содержащая данные(свойства) и поведения(методы).
-Слово «одновременно» в данном случае определяет ключевую разницу между ООП и 
-другими методологиями программирования. Например, при процедурном программировании 
-код размещается в полностью отдельных функциях или процедурах.</p>
-<p></p>
-
-  </div>
-  <div>
-    <b id="Interface">Interface</b><br/>
-    <p>An interface is a contract between a class and the outside world. When a class implements an interface, it promises to provide the behavior published by that interface.</p>
-  </div>
-  <div>
     <b id="Abstraction">Abstraction</b><br/>
     <p>By Dictionary: the act of obtaining or removing something from a source : the act of abstracting something
 : a general idea or quality rather than an actual person, object, or event : an abstract idea or quality</p>
@@ -42,31 +13,6 @@
 <p>Абстракция выделяет существенные характеристики некоторого объекта, отличающие его от всех других видов объектов и,
   таким образом, четко определяет его концептуальные границы с точки зрения наблюдателя.</p>
 <p>следует учитывать ещё и такое понятие как уровни абстракции, как пример types Employee and Manager</p>
-  </div>
-  <div>
-    <b id="Inheritance">Inheritance</b><br/>
-    <p>Ability of Class to take on propeties, methods and public Interface of parent Class.</p>
-  </div>
-  <div>
-    <b id="Polymorphism">Polymorphism</b><br/>
-    <p>In Dictionary: the condition of occurring in several different forms</p>
-    <p>the provision of a single interface to entities of different types</p>
-    <p>Behavior Polymorphism: condition of classes to provide public Interface "Duck Typing"</p>
-    <p>Data Structure Polymorphism: by structire of Class's properties, like in TypeScript</p>
-    <p><a href="https://en.wikipedia.org/wiki/Polymorphism_(computer_science)" target="_blank">Wikipedia</a></p>
-  </div>
-  <div>
-    <b id="Encapsulation">Encapsulation</b><br/>
-    <p>Can't realy give short definition. Condition of Class to hide internal data representation and implementation
-    details of methods inside of the Class, hiding Object's State. Leads  to Information Hiding, and weak coupling of
-    models through programming to inteface principle.</p>
-    <p><a href="https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)" target="_blank">Wikipedia</a></p>
-  </div>
-  <div>
-    <b id="Association">Association</b><br/>
-    <p>Тип слабой зависимости две сущьности сушествуют отдельно друг от друга. Объект имеет доступ к другому
-    через указатель. Ассоциация – это когда один класс включает в себя указатель на другой класс в качестве одного из 
-полей.</p>
   </div>
   <div>
     <b id="Aggregation">Aggregation</b><br/>
@@ -78,6 +24,26 @@ Note that objects participating in an aggregation relationship cannot have cycli
 aggregation relationships, i.e., a whole can contain a part, but the reverse is not true. </p>
   </div>
   <div>
+    <b id="Association">Association</b><br/>
+    <p>Тип слабой зависимости две сущьности сушествуют отдельно друг от друга. Объект имеет доступ к другому
+    через указатель. Указатель передается как аргумент функции.</p>
+  </div>
+  <div>
+    <b id="class">Class</b><br/>
+    <p>the <u>definition</u> for the data format and available procedures for a given type or class of object;</p>
+    <p>A class is a blueprint or prototype from which objects are created</p>
+    <p>
+**КЛАСС** - это шаблон, предназначенный для создания объектов.
+Класс - это именованный тип сущности из предметной области, возможно, имеющая 
+предка (суперкласс), определенная как набор полей и методов.
+    </p>
+  </div>
+  <div>
+    <b id="Cohesion">Cohesion</b><br/>
+    <p>Связность.<br/>
+    Сцепление, связь, сплочённость. Думаю о связанности внутри модуля.</p>
+  </div>
+  <div>
     <b id="Composition">Composition</b><br/>
     <p>
 Композиция (агрегирование по значению) — тип строгой зависимости и более строгий вариант агрегирования, когда 
@@ -85,11 +51,6 @@ aggregation relationships, i.e., a whole can contain a part, but the reverse is 
 Если контейнер будет уничтожен, то и включённый объект тоже будет уничтожен.
 Композиция подразумевает создание объектов с использованием других объектов (has-a relationship).
     </p>
-  </div>
-  <div>
-    <b id="Cohesion">Cohesion</b><br/>
-    <p>Связность.<br/>
-    Сцепление, связь, сплочённость. Думаю о связанности внутри модуля.</p>
   </div>
   <div>
     <b id="Coupling">Coupling</b><br/>
@@ -106,6 +67,51 @@ aggregation relationships, i.e., a whole can contain a part, but the reverse is 
     <p>Disintegration, разложение. Разложение сложного модуля или объекта обладаюшего сложным функционалом и реализацией,
     отвечающего за большой объём функционала приложения на меньшие типы для улучьшения инкапсуляции, модульности, полиморфизма
     в соответствии с принципами SOLID.</p>
+  </div>
+  <div>
+    <b id="Encapsulation">Encapsulation</b><br/>
+    <p>Can't realy give short definition. Condition of Class to hide internal data representation and implementation
+    details of methods inside of the Class, hiding Object's State. Leads  to Information Hiding, and weak coupling of
+    models through programming to inteface principle.</p>
+    <p><a href="https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)" target="_blank">Wikipedia</a></p>
+  </div>
+  <div>
+    <b id="Inheritance">Inheritance</b><br/>
+    <p>Ability of Class to take on propeties, methods and public Interface of parent Class.</p>
+  </div>
+  <div>
+    <b id="Interface">Interface</b><br/>
+    <p>An interface is a contract between a class and the outside world. When a class implements an interface, it promises to provide the behavior published
+      by that interface.</p>
+  </div>
+  <div>
+    <b id="Object">Object</b><br/>
+    <p>In Dictionary: a material thing that can be seen and touched.</p>
+    <p> In OOP: a particular instance of a Class, where the object can be a combination of variables, functions, and data structures.</p>
+    <p>Объект — это именованная сущность, <u>одновременно</u> содержащая данные(свойства) и поведения(методы).
+Слово «одновременно» в данном случае определяет ключевую разницу между ООП и 
+другими методологиями программирования. Например, при процедурном программировании 
+код размещается в полностью отдельных функциях или процедурах.</p>
+<p></p>
+  </div>
+  <div>
+    <b id="oop">OOP</b><br/>
+    <p>Object-oriented programming is an approach to designing modular reusable software systems. </p>
+  </div>
+  <div><b id="overloading">Overloading</b><br/>
+  <p>Overloading is a concept used to avoid redundant code where the same method name is used multiple times but with a different set of parameters. </p>
+  </div>
+  <div><b id="overridng">Overridng</b><br/>
+  <p>Method overriding, in object-oriented programming, is a language feature that allows a subclass or child class to
+    provide a specific implementation of a method that is already provided by one of its superclasses or parent classes. </p>
+  </div>
+  <div>
+    <b id="Polymorphism">Polymorphism</b><br/>
+    <p>In Dictionary: the condition of occurring in several different forms</p>
+    <p>Behavioral Polymorphism: the provision of a single interface(behavior) to entities of different types</p>
+    <p>Structural(architectural) Polymorphism: condition of classes to provide public Interface "Duck Typing"</p>
+    <p>Data Structure Polymorphism: by structire of Class's properties, like in TypeScript</p>
+    <p><a href="https://en.wikipedia.org/wiki/Polymorphism_(computer_science)" target="_blank">Wikipedia</a></p>
   </div>
 
   <div>
