@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Idioms Javascript</title>
+</head>
+<body style="padding: 0 20% 0">
+  <h4>while (n --> 0)  // "n goes to zero"</h4>
+  <div>
+    <pre>
+        let n = 3;
+        while (n --> 0) {
+            console.log(n); // 2, 1, 0
+        }
+    </pre>
+  </div>
+  <h4>let result = a => b => a + b;</h4>
+  <div>
+    <pre>
+            let result = a => b => a + b;
+            console.log(result(2)(3)); // 5
+    </pre>
+    <a href="https://stackoverflow.com/questions/32782922/what-do-multiple-arrow-functions-mean-in-javascript"
+    target="_blank">Good answer and stackoverflow about currying functions</a>
+  </div>
+  <h4>number to string</h4>
+  <div>
+    <pre>
+            alert( '1' + 2 ); // "12"
+            alert( 2 + '1' ); // "21"
+            alert( '2' > 1 ); // true, сравнивается как 2 > 1
+            alert( '01' == 1 ); // true, сравнивается как 1 == 1
+    </pre>
+    <a href="https://stackoverflow.com/questions/32782922/what-do-multiple-arrow-functions-mean-in-javascript"
+    target="_blank">Good answer and stackoverflow about currying functions</a>
+  </div>
+  <h4>string to number</h4>
+  <div>
+    <pre>
+            alert( +"3" + +"2" ); // 5
+    </pre>
+    <a href="https://stackoverflow.com/questions/32782922/what-do-multiple-arrow-functions-mean-in-javascript"
+    target="_blank">Good answer and stackoverflow about currying functions</a>
+  </div>
+  <h4>Comparison with ==</h4>
+  <div>
+    <pre>
+            3 == '3'
+            // true
+    </pre>
+    <p>
+        With double equals, JavaScript attempts to convert the values into a common type.
+    </p>
+    <a href="https://stackoverflow.com/questions/32782922/what-do-multiple-arrow-functions-mean-in-javascript"
+    target="_blank">Good answer and stackoverflow about currying functions</a>
+  </div>
+</body>
+</html>
+
